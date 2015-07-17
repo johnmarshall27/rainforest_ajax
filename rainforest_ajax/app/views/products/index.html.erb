@@ -1,0 +1,15 @@
+<h1>Listing products</h1>
+<p class="page-entries"><%= page_entries_info @products %></p>
+
+<%= link_to 'New Product', new_product_path %>
+
+<%= form_tag products_path, method: :get, authentication: false, id: 'search-form' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<div id="products">
+  <%= render @products %>
+</div>
+
+<%= paginate @products %>

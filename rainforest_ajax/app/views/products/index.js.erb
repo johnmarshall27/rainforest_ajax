@@ -1,0 +1,7 @@
+<% if params[:search] %>
+  $('#products').html('<%= j(render @products) %>');
+<% else %>
+  $('#products').append('<%= j(render @products) %>');
+  $('.page-entries').html('<%= j(page_entries_info @products) %>');
+  $('.pagination').replaceWith('<%= j(paginate @products) %>');
+<% end %>
